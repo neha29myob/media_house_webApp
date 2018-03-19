@@ -1,9 +1,7 @@
 package MediaController;
 
 import com.MediaModel.Media;
-import DatabaseOperations.DBQueries;
-import DatabaseOperations.MyPostgresConnection;
-
+import DatabaseOperations.MediaRepositoryImpl;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet(name = "ServletViewMedia", urlPatterns = {"/view"})
@@ -30,10 +26,10 @@ public class ServletViewMedia extends HttpServlet {
         //Connection con = null;
 
             //con = MyPostgresConnection.getMyPostgresConnection();
-            List<Media> displayMediaList = DBQueries.displayMediaProducts();
+            List<Media> displayMediaList = MediaRepositoryImpl.displayMediaProducts();
             request.setAttribute("displayMediaList", displayMediaList);
 
-            RequestDispatcher view = request.getRequestDispatcher("viewProducts.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("ProductList.jsp");
             view.forward(request,response);
 
     }

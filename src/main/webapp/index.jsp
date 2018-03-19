@@ -8,9 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>Media House</title>
   </head>
   <body>
-  gradle test
+
   </body>
 </html>
