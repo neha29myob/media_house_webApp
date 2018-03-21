@@ -11,25 +11,24 @@ import javax.persistence.Persistence;
 //@Stateless
 public class MediaRepositoryImpl {
     //@PersistenceContext(unitName="mediaPU")
-    //private EntityManagerFactory factory = Persistence.createEntityManagerFactory("mediaPU");
-    //private static EntityManager em;
+    private EntityManagerFactory factory;
+    private EntityManager em;
 
 
-//    public MediaRepositoryImpl(){
-//      em = factory.createEntityManager();
-//   }
-//
-//    public Media createProduct(Media media){
-//       em.getTransaction().begin();
-//       em.persist(media);
-//       em.getTransaction().commit();
-//       return media;
-//    }
+    public MediaRepositoryImpl(){
 
-    public static List<Media> displayMediaProducts() {
+        factory =Persistence.createEntityManagerFactory("mediaPU");
+        em = factory.createEntityManager();
+   }
 
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("mediaPU");
-        EntityManager em = factory.createEntityManager();
+    public Media createProduct(Media media){
+       em.getTransaction().begin();
+       em.persist(media);
+       em.getTransaction().commit();
+       return media;
+    }
+
+    public List<Media> displayMediaProducts() {
         em.getTransaction().begin();
         List<Media> mediaList = em.createQuery("SELECT m FROM Media m").getResultList();
         em.getTransaction().commit();

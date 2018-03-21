@@ -11,6 +11,8 @@
     <title>Media House</title>
   </head>
   <body>
-
+  <h2>Media House Management</h2>
+    <a href="list">List All Media Items</a><br/>
+    <a href="CreateMedia.jsp">Create Media </a><br/>
   </body>
 </html>

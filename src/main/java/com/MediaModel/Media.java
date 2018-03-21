@@ -1,18 +1,15 @@
 package com.MediaModel;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table (name = "media")
+@Table (name = "Media")
 public class Media {
 
     @Id
-    @GeneratedValue
-    private Integer code;
-    private String name;
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Integer id;
+    private String title;
     private float price;
     private String category;
     private int quantity;
@@ -21,28 +18,28 @@ public class Media {
 
     }
 
-    public Media(int code, String name, float price, String category, int quantity) {
-        this.code = code;
-        this.name = name;
+    public Media(Integer id, String title, String category, float price, int quantity) {
+        this.id = id;
+        this.title = title;
         this.price = price;
         this.category = category;
         this.quantity = quantity;
     }
 
-    public int getCode() {
-        return code;
+    public Integer getCode() {
+        return id;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public void setCode(Integer code) {
+        this.id = code;
     }
 
     public String getName() {
-        return name;
+        return title;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.title = name;
     }
 
     public float getPrice() {
@@ -72,8 +69,8 @@ public class Media {
     @Override
     public String toString() {
         return "Media{" +
-                "code='" + code + '\'' +
-                ", name='" + name + '\'' +
+                "id='" + id + '\'' +
+                ", name='" + title + '\'' +
                 ", price=" + price +
                 ", category='" + category + '\'' +
                 ", quantity=" + quantity +

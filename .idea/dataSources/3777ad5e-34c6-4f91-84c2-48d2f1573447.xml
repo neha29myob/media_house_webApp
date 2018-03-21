@@ -45,8 +45,8 @@
     </role>
     <schema id="9" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2018-03-19.11:29:55.069</IntrospectionTimestamp>
-      <IntrospectionStateNumber>571</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-03-21.11:47:54.123</IntrospectionTimestamp>
+      <IntrospectionStateNumber>577</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -65,39 +65,63 @@
     <schema id="14" parent="2" name="information_schema">
       <ObjectId>12703</ObjectId>
     </schema>
-    <table id="15" parent="9" name="media">
-      <ObjectId>16384</ObjectId>
-      <StateNumber>571</StateNumber>
+    <sequence id="15" parent="9" name="media_id_seq">
+      <ObjectId>32768</ObjectId>
+      <StateNumber>577</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <table id="16" parent="9" name="media">
+      <ObjectId>32770</ObjectId>
+      <StateNumber>577</StateNumber>
     </table>
-    <column id="16" parent="15" name="code">
+    <column id="17" parent="16" name="id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
-      <StateNumber>571</StateNumber>
+      <NotNull>1</NotNull>
+      <StateNumber>577</StateNumber>
+      <DefaultExpression>nextval(&apos;media_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
+      <SequenceName>media_id_seq</SequenceName>
     </column>
-    <column id="17" parent="15" name="name">
+    <column id="18" parent="16" name="title">
       <Position>2</Position>
-      <DataType>varchar(25)|0</DataType>
-      <StateNumber>558</StateNumber>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>577</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="18" parent="15" name="price">
+    <column id="19" parent="16" name="category">
       <Position>3</Position>
+      <DataType>varchar(25)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>577</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="20" parent="16" name="price">
+      <Position>4</Position>
       <DataType>double precision|0</DataType>
-      <StateNumber>559</StateNumber>
+      <StateNumber>577</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="19" parent="15" name="category">
-      <Position>4</Position>
-      <DataType>varchar(15)|0</DataType>
-      <StateNumber>560</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="20" parent="15" name="quantity">
+    <column id="21" parent="16" name="quantity">
       <Position>5</Position>
       <DataType>integer|0</DataType>
-      <StateNumber>561</StateNumber>
+      <StateNumber>577</StateNumber>
       <TypeId>23</TypeId>
     </column>
+    <index id="22" parent="16" name="media_pkey">
+      <ObjectId>32774</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="23" parent="16" name="media_pkey">
+      <ObjectId>32775</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>media_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
   </database-model>
 </dataSource>
