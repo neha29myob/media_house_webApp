@@ -26,11 +26,11 @@ public class Media {
         this.quantity = quantity;
     }
 
-    public Integer getCode() {
+    public Integer getId() {
         return id;
     }
 
-    public void setCode(Integer code) {
+    public void setId(Integer code) {
         this.id = code;
     }
 

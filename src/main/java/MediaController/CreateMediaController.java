@@ -27,6 +27,5 @@ public class CreateMediaController extends HttpServlet {
         mediaRepository.createProduct(media);
         request.setAttribute("msg", "Created Successfully!");
         request.getRequestDispatcher("CreateMedia.jsp").forward(request,response);
-        //response.sendRedirect("/list");
     }
 }

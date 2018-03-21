@@ -28,6 +28,18 @@ public class MediaRepositoryImpl {
        return media;
     }
 
+    public Media findById(int id){
+        em.getTransaction().begin();
+        return em.find(Media.class, id);
+    }
+
+    public void deleteProduct(Media media){
+       em.getTransaction().begin();
+       em.remove(em.contains(media)? media : em.merge(media));
+      // em.clear();
+       em.getTransaction().commit();
+    }
+
     public List<Media> displayMediaProducts() {
         em.getTransaction().begin();
         List<Media> mediaList = em.createQuery("SELECT m FROM Media m").getResultList();

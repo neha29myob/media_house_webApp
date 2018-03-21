@@ -30,15 +30,15 @@
 
         <c:forEach var="media" items="${requestScope.displayMediaList}">
             <tr>
-                <td><c:out value="${media.getCode()}" /></td>
+                <td><c:out value="${media.getId()}" /></td>
                 <td><c:out value="${media.getName()}" /></td>
                 <td><c:out value="${media.getCategory()}" /></td>
                 <td><c:out value="${media.getPrice()}" /></td>
                 <td><c:out value="${media.getQuantity()}" /></td>
                 <td>
-                    <a href="/edit?id=<c:out value='${media.getCode()}' />">Edit</a>
+                    <a href="edit?id=<c:out value='${media.getId()}' />">Edit</a>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="/delete?id=<c:out value='${media.getCode()}' />">Delete</a>
+                    <a href="delete?id=<c:out value='${media.getId()}' />">Delete</a>
                 </td>
             </tr>
         </c:forEach>
