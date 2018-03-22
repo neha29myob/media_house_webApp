@@ -34,9 +34,20 @@ public class MediaRepositoryImpl {
     }
 
     public void deleteProduct(Media media){
+        try{
+            em.getTransaction().begin();
+            em.remove(em.contains(media)? media : em.merge(media));
+            em.getTransaction().commit();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            em.getTransaction().rollback();
+        }
+    }
+
+    public void updateProduct(Media media){
        em.getTransaction().begin();
-       em.remove(em.contains(media)? media : em.merge(media));
-      // em.clear();
+       em.merge(media);
        em.getTransaction().commit();
     }
 

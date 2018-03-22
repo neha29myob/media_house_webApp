@@ -36,7 +36,7 @@
                 <td><c:out value="${media.getPrice()}" /></td>
                 <td><c:out value="${media.getQuantity()}" /></td>
                 <td>
-                    <a href="edit?id=<c:out value='${media.getId()}' />">Edit</a>
+                    <a href="update?cmd=openUpdate&id=<c:out value='${media.getId()}' />">Edit</a>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <a href="delete?id=<c:out value='${media.getId()}' />">Delete</a>
                 </td>

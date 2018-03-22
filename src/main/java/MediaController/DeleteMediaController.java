@@ -18,11 +18,21 @@ public class DeleteMediaController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        MediaRepositoryImpl mediaRepository = new MediaRepositoryImpl();
         Integer id = Integer.parseInt(request.getParameter("id"));
+        MediaRepositoryImpl mediaRepository = new MediaRepositoryImpl();
         Media media = new MediaRepositoryImpl().findById(id);
         mediaRepository.deleteProduct(media);
         request.setAttribute("msg", "Deleted Successfully!");
         response.sendRedirect("/list");
     }
+//
+//    protected void findMediaToDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//
+//        Integer id = Integer.parseInt(request.getParameter("id"));
+//        MediaRepositoryImpl mediaRepository = new MediaRepositoryImpl();
+//        Media media = new MediaRepositoryImpl().findById(id);
+//    }
+
+
+
 }
